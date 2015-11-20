@@ -1,0 +1,2 @@
+module SecretstuffHelper
+end

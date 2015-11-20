@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+
+<div class="b-content">
+    <div id="content_3" class="fr-widget fr-container fr_content_3">
+        <div id="cnt03_column_grid" class="fr-widget fr-grid fr_cnt03_column_grid">
+            <div id="cnt03_image" class="fr-widget fr-container fr_cnt03_image">
+              <% def shuffleThatShit() %>
+              <%  @albums.shuffle.first(1).each do |album| %>
+              <iframe style="border: 0; width: 500px; height: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=<%= album.url.html_safe %>/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless></iframe>
+              <% @artisttitel = album.artist %>
+              <% @albumtitel = album.album %>
+              <% @beskrivelse = album.notes %>
+              <% end %>
+              <% end %>
+              <% shuffleThatShit() %>
+            </div><!--
+         --><div id="cnt03_paragraph" class="fr-widget fr-container fr_cnt03_paragraph">
+                <div id="cnt03_text" class="fr-widget fr-text fr-wf fr_paragraph_left_grey fr_cnt03_text">
+                    <h2><%= @artisttitel %>: <i><%= @albumtitel %></i></h2>
+                    <div class="fr-text"><%= @beskrivelse %></div>
+                </div><!--
+             --><div id="cnt03_follow" class="fr-widget fr-text fr-wf fr_paragraph_left_black fr_cnt03_follow">
+                    <div class="fr-text">Want more?</div>
+                </div><!--
+             -->
+                    <h3><%= link_to 'Give me something new, dude', albums_path %></h3>
+
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="b-content-bottom">
+  <% @senesteartist = Array.new()%>
+  <% @senestealbum = Array.new() %>
+  <% @senesteurl = Array.new() %>
+  <% @senestenotes = Array.new() %>
+  <%  @albums.last(4).each do |album| %>
+  <% @senesteartist.push(album.artist) %>
+  <% @senestealbum.push(album.album) %>
+  <% @senesteurl.push(album.url) %>
+  <% @senestenotes.push(album.notes) %>
+  <% end %>
+
+        <div id="gallery_4" class="fr-widget fr-container fr_gallery_4">
+            <div id="gry4_main_title" class="fr-widget fr-text fr-wf fr_h4_white fr_gry4_main_title">
+                <div class="fr-text">LATEST ALBUMS</div>
+            </div><!--
+         --><div id="gry4_4_column_grid" class="fr-widget fr-grid fr_gry4_4_column_grid">
+                <div id="gry4_one" class="fr-widget fr-container fr_gry4_one">
+
+                      <iframe style="border: 0; width: 230px; height: 230px;" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @senesteurl[3].html_safe %>/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless></iframe>
+                    <!--
+                 --><div id="gry4_text_four_4" class="fr-widget fr-container fr_gry4_text_four_4">
+                        <div id="gry4_client_four_4" class="fr-widget fr-text fr-wf fr_h2_left_white fr_gry4_client_four_4">
+                            <div class="fr-text"><%= @senestealbum[3] %></div>
+                        </div><!--
+                     --><div id="gry4_categorie_four_4" class="fr-widget fr-text fr-wf fr_caption_left_white fr_gry4_categorie_four_4">
+                            <div class="fr-text"><%= @senesteartist[3] %></div>
+                        </div><!--
+                     --><div id="gry4_paragraph_four_4" class="fr-widget fr-text fr-wf fr_paragraph_left_grey fr_gry4_paragraph_four_4">
+                            <div class="fr-text"><%= @senestenotes[3] %></div>
+                        </div>
+                    </div>
+                </div><!--
+             --><div id="gry4_two" class="fr-widget fr-container fr_gry4_two">
+                    <iframe style="border: 0; width: 230px; height: 230px;" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @senesteurl[2].html_safe %>/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless></iframe>
+                 --><div id="gry4_text_four_3" class="fr-widget fr-container fr_gry4_text_four_3">
+                        <div id="gry4_client_four_3" class="fr-widget fr-text fr-wf fr_h2_left_white fr_gry4_client_four_3">
+                            <div class="fr-text"><%= @senestealbum[2] %></div>
+                        </div><!--
+                     --><div id="gry4_categorie_four_3" class="fr-widget fr-text fr-wf fr_caption_left_white fr_gry4_categorie_four_3">
+                            <div class="fr-text"><%= @senesteartist[2] %></div>
+                        </div><!--
+                     --><div id="gry4_paragraph_four_3" class="fr-widget fr-text fr-wf fr_paragraph_left_grey fr_gry4_paragraph_four_3">
+                            <div class="fr-text"><%= @senestenotes[2] %></div>
+                        </div>
+                    </div>
+                </div><!--
+             --><div id="gry4_three" class="fr-widget fr-container fr_gry4_three">
+                    <iframe style="border: 0; width: 230px; height: 230px;" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @senesteurl[1].html_safe %>/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless></iframe>
+                 --><div id="gry4_text_four_2" class="fr-widget fr-container fr_gry4_text_four_2">
+                        <div id="gry4_client_four_2" class="fr-widget fr-text fr-wf fr_h2_left_white fr_gry4_client_four_2">
+                            <div class="fr-text"><%= @senestealbum[1] %></div>
+                        </div><!--
+                     --><div id="gry4_categorie_four_2" class="fr-widget fr-text fr-wf fr_caption_left_white fr_gry4_categorie_four_2">
+                            <div class="fr-text"><%= @senesteartist[1] %></div>
+                        </div><!--
+                     --><div id="gry4_paragraph_four_2" class="fr-widget fr-text fr-wf fr_paragraph_left_grey fr_gry4_paragraph_four_2">
+                            <div class="fr-text"><%= @senestenotes[1] %></div>
+                        </div>
+                    </div>
+                </div><!--
+             --><div id="gry4_four" class="fr-widget fr-container fr_gry4_four">
+                    <iframe style="border: 0; width: 230px; height: 230px;" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @senesteurl[0].html_safe %>/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless></iframe>
+                 --><div id="gry4_text_four" class="fr-widget fr-container fr_gry4_text_four">
+                        <div id="gry4_client_four" class="fr-widget fr-text fr-wf fr_h2_left_white fr_gry4_client_four">
+                            <div class="fr-text"><%= @senestealbum[0] %></div>
+                        </div><!--
+                     --><div id="gry4_categorie_four" class="fr-widget fr-text fr-wf fr_caption_left_white fr_gry4_categorie_four">
+                            <div class="fr-text"><%= @senesteartist[0] %></div>
+                        </div><!--
+                     --><div id="gry4_paragraph_four" class="fr-widget fr-text fr-wf fr_paragraph_left_grey fr_gry4_paragraph_four">
+                            <div class="fr-text"><%= @senestenotes[0] %></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
